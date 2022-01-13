@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: ThirdParty
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      config:
+        enabled: true
+        prefix: config
+        defaultContext: application
+        profileSeparator: '::'
+        watch:
+          delay: 5000
+      discovery:
+        health-check-url: http://localhost:9002/actuator/health
+        health-check-tls-skip-verify: true
+        health-check-interval: 5s
